@@ -7,23 +7,24 @@ require 'config.php';
 
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit User</title>
 </head>
 
-<body>
+<body class="body-edit bg-info">
   <div class="main-edituser container mt-5">
 
     <?php include('message.php'); ?>
     
-    <div class="row">
       <div class="col-md-12">
-        <div class="card bg-secondary">
+        <div class="card bg-secondary border-0">
           <div class="card-header bg-dark text-white">
-            <h2>Edit User
-              <a href="index.php" class="btn btn-danger float-end">BACK</a>
+            <h2>View User
+              <a href="index.php" class="btn btn-danger float-end mt-1">BACK</a>
             </h2>
           </div>
           <div class="card-body bg-secondary text-white">
@@ -75,7 +76,6 @@ require 'config.php';
         </div>
       </div>
     </div>
-  </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

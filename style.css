@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway&family=Roboto+Mono:wght@700&display=swap');
+
+/* *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+} */
+
+/* START OF REGISTRATION STYLE */
+/* END OF REGISTRATION STYLE */
+
+/* START OF LOGIN STYLE */
+/* END OF LOGIN STYLE */
+
+/* START OF INDEX STYLE */
+.body-index h1{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+}
+
+.cardHeader-index h2{
+  font-family: 'Raleway', sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.cardBody-index th{
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+
+.cardBody-index td{
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+/* END OF INDEX STYLE */
