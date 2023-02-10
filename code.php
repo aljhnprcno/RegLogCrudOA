@@ -49,6 +49,7 @@ if(isset($_POST['edit_user']))
 
   $today = date("Y-m-d H:i:s");
   $duplicate_email = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+  // EDITED
 
   if (mysqli_num_rows($duplicate_email) > 0) {
 
