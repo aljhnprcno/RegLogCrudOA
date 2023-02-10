@@ -1,12 +1,15 @@
 <?php
-    if(isset($_SESSION['message'])) :
+if (isset($_SESSION['message'])) :
 ?>
 
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Hey!</strong> <?= $_SESSION['message']; ?>
-    </div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Hey!</strong><?= $_SESSION['message']; ?>
+  <button type="button" class="btn-close close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
-<?php 
-    unset($_SESSION['message']);
-    endif;
+<?php
+  unset($_SESSION['message']);
+endif;
 ?>

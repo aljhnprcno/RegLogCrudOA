@@ -38,24 +38,34 @@ require 'config.php';
               if(mysqli_num_rows($query_run) > 0){
               $user = mysqli_fetch_array($query_run);
             ?>
+              <div class="mb-3">
+                <label>Name: </label>
+                <p class="form-control">
+                  <?=$user['name']; ?>
+                </p>
+              </div>
 
-            <form action="code.php" method="POST" autocomplete="off" class="form-edituser">
+              <div class="mb-3">
+                <label>Email: </label>
+                <p class="form-control">
+                  <?=$user['email']; ?>
+                </p>
+              </div>
 
-              <input type="hidden" name="user_id" value="<?= $user['id']; ?>">
-              <label for="name">Name: </label>
-              <input required type="text" name="name" value="<?=$user['name'];?>" class="form-control"> <br>
-              <label for="email">Email: </label>
-              <input required type="email" name="email" value="<?=$user['email'];?>" class="form-control"> <br>
-              <label for="gender">Gender: </label>
-              <select class="form-control" name="gender">
-                <option value="Male" <?php if ($user["gender"] == "Male") echo "selected"; ?>>Male</option>
-                <option value="Female" <?php if ($user["gender"] == "Female") echo "selected"; ?>>Female</option>
-              </select> <br>
-              <label>Birthday: </label>
-              <input required type="text" name="birthday" class="form-control" placeholder="<?=$user['birthday']; ?>" onfocus="(this.type='date')" onblur="(this.type='date')">
-              <br>
-              <button type="submit" name="edit_user" class="btn btn-primary">SAVE</button>
-            </form>
+              <div class="mb-3">
+                <label>Gender: </label>
+                <p class="form-control">
+                  <?=$user['gender']; ?>
+                </p>
+              </div>
+
+              <div class="mb-3">
+                <label>Birthday: </label>
+                <p class="form-control">
+                  <?=$user['birthday']; ?>
+                </p>
+              </div>
+
         <?php
         }else{
           echo "<h4>No Such Id Found</h4>";

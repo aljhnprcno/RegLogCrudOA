@@ -38,11 +38,11 @@
     <?php include('message.php'); ?>
 
     <div class="row">
-      <div class="col-md-12 ">
+      <div class="col-md-12">
         <div class="card">
         <div class="card-header bg-dark text-white">
           <h2>Data Table
-            <a href="adduser.php" class="btn btn-success float-end">Add Students</a>
+            <a href="adduser.php" class="btn btn-success float-right">Add Students</a>
           </h2>
         </div>
         <div class="card-body bg-secondary">
@@ -53,6 +53,7 @@
                 <td scope="col">Email</td>
                 <td scope="col">Gender</td>
                 <td scope="col">Birthday</td>
+                <td scope="col">Date Created</td>
                 <td scope="col">Action</td>
               </tr>
               <?php 
@@ -71,10 +72,12 @@
                 <td><?= $user['email']; ?></td>
                 <td><?= $user['gender']; ?></td>
                 <td><?= $user['birthday']; ?></td>
+                <td> </td>
                 <td>
+                  <a href="viewuser.php?id=<?= $user['id'];?>>" class="btn btn-success btn-sm">VIEW</a>
                   <a href="edituser.php?id=<?= $user['id'];?>>" class="btn btn-primary btn-sm">EDIT</a>
                   <form action="code.php" method="POST" class="d-inline">
-                    <button type="submit" name="delete_user" value="<?= $user['id']; ?>" class="btn btn-danger btn-sm">DELETE
+                    <button type="submit" name="delete_user" value="<?= $user['id']; ?>" class="btn btn-danger btn-sm ">DELETE
                     </button>
                   </form>
                 </td>

@@ -14,6 +14,9 @@ session_start();
 
 <body>
 <div class="main-adduser container mt-5">
+
+<?php include('message.php'); ?>
+
   <div class="col-md-12">
     <div class="card bg-secondary">
         <div class="card-header bg-dark text-white">
