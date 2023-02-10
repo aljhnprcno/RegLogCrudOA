@@ -73,7 +73,6 @@ require 'config.php';
             <form action="code.php" method="POST" autocomplete="off" class="form-edituser">
 
               <input type="hidden" name="user_id" value="<?= $user['id']; ?>">
-              <input type="hidden" name="Test" value="<?=$user['name']; ?>">
               <label for="name">Name: </label>
               <input type="text" name="name" value="<?=$user['name'];?>" class="form-control"> <br>
               <label for="email">Email: </label>

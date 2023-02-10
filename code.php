@@ -38,8 +38,7 @@ if(isset($_POST['save_user']))
 
 if(isset($_POST['edit_user']))
 {
-
-  // date_default_timezone_set('Asia/Manila');
+  date_default_timezone_set('Asia/Manila');
 
   $user_id = $_POST['user_id'];
   $name = $_POST['name'];
@@ -48,46 +47,30 @@ if(isset($_POST['edit_user']))
   $birthday = $_POST['birthday'];
 
 
-  // $today = date("Y-m-d H:i:s");
-  // $duplicate_email = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+  $today = date("Y-m-d H:i:s");
+  $duplicate_email = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
 
-  $query = "UPDATE users SET name='$name', email='$email', gender='$gender', birthday='$birthday' WHERE id='$user_id' ";
-  $query_run = mysqli_query($conn,$query);
+  if (mysqli_num_rows($duplicate_email) > 0) {
 
-  if($query_run)
-  {
-      $_SESSION['message'] = "User Updated Successfully";
-      header("Location: index.php");
-      exit(0);
-  }
-  else
-  {
-      $_SESSION['message'] = "User Not Updated";
-      header("Location: index.php");
-      exit(0);
-  }
-  
-  // if (mysqli_num_rows($duplicate_email) > 0) {
+    $_SESSION['message'] = "Email Already Exists";
+    header("Location: index.php");
+    exit(0);
 
-  //   $_SESSION['message'] = "Email Already Exists";
-  //   header("Location: index.php");
-  //   exit(0);
+  } else if($birthday >= $today) {
 
-  // } else if($birthday >= $today) {
+    $_SESSION['message'] = "Birthdate Invalid";
+    header("Location: index.php");
+    exit(0);
 
-  //   $_SESSION['message'] = "Birthdate Invalid";
-  //   header("Location: index.php");
-  //   exit(0);
+  } else {
 
-  // } else {
+    $query = "UPDATE users SET name='$name', email='$email', gender='$gender', birthday='$birthday' WHERE id='$user_id' ";
+    mysqli_query($conn,$query);
+    $_SESSION['message'] = "User Updated Successfully";
+    header("Location: index.php");
+    exit(0);
 
-  //   $query = "UPDATE users SET name='$name', email='$email', gender='$gender', birthday='$birthday' WHERE id='$user_id' ";
-  //   mysqli_query($conn,$query);
-  //   $_SESSION['message'] = "User Updated Successfully";
-  //   header("Location: index.php");
-  //   exit(0);
-
-  // };
+  };
 }
 
 ?>
