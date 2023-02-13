@@ -7,9 +7,29 @@
 } */
 
 /* START OF REGISTRATION STYLE */
+.cardHeader-register h2{
+  font-family: 'Raleway', sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.cardBody-register{
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
 /* END OF REGISTRATION STYLE */
 
 /* START OF LOGIN STYLE */
+.cardHeader-login h4{
+  font-family: 'Raleway', sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.cardBody-login{
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
 /* END OF LOGIN STYLE */
 
 /* START OF INDEX STYLE */
@@ -33,4 +53,47 @@
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
 }
+
+.cardBody-index table{
+  width: auto;
+}
 /* END OF INDEX STYLE */
+
+/* START OF ADD USER STYLE */
+.cardHeader-adduser h2{
+  font-family: 'Raleway', sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.cardBody-adduser form{
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+/* END OF ADD USER STYLE */
+
+/* START OF EDIT USER STYLE */
+.cardHeader-edituser h2{
+  font-family: 'Raleway', sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.cardBody-edituser form{
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+/* END OF EDIT USER STYLE */
+
+/* START OF VIEW USER STYLE */
+.cardHeader-viewuser h2{
+  font-family: 'Raleway', sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.cardBody-viewuser{
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+/* END OF VIEW USER STYLE */

@@ -22,12 +22,12 @@ require 'config.php';
     
       <div class="col-md-12">
         <div class="card bg-secondary border-0">
-          <div class="card-header bg-dark text-white">
+          <div class="cardHeader-viewuser card-header bg-dark text-white">
             <h2>View User
               <a href="index.php" class="btn btn-danger float-end mt-1">BACK</a>
             </h2>
           </div>
-          <div class="card-body bg-secondary text-white">
+          <div class="cardBody-viewuser card-body bg-secondary text-white">
 
           <?php
           if(isset($_GET['id'])){
@@ -66,6 +66,22 @@ require 'config.php';
                   <?=$user['birthday']; ?>
                 </p>
               </div>
+
+              <div class="mb-3">
+                <label>Address: </label>
+                <p class="form-control">
+                  <?=$user['address']; ?>
+                </p>
+              </div>
+
+              <div class="mb-3">
+                <label>Image: </label><br>
+                <p class="form-control">
+                  <?=$user['image']; ?></p>
+                <img class="" src=<?= $user['image']; ?> width="200px" height="200px" accept=".jpg, .jpeg, .png">
+                </p>
+              </div>
+              
 
         <?php
         }else{

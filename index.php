@@ -10,6 +10,11 @@ if (!empty($_SESSION["id"])) {
 } else {
   header("Location: login.php");
 };
+
+// $pic = mysqli_query($conn,"SELECT * FROM users");
+// while($row = mysqli_fetch_array($pci)){
+  
+// }
 ?>
 
 <!DOCTYPE html>
@@ -44,18 +49,19 @@ if (!empty($_SESSION["id"])) {
         <div class="card-index card border-0">
           <div class="cardHeader-index card-header bg-dark text-white">
             <h2>Data Table
-              <a href="adduser.php" class="btn btn-success float-right mt-1">Add Students</a>
+              <a href="adduser.php" class="btn btn-success float-right mt-1">Add User</a>
             </h2>
           </div>
           <div class="cardBody-index card-body bg-secondary">
-            <table class="table table-striped table-bordered table-dark">
+            <table class="table table-striped table-bordered table-dark mx-auto" width=100%>
               <tr>
                 <th class="text-center" scope="col">#</th>
                 <th class="text-center" scope="col">Name</th>
                 <th class="text-center" scope="col">Email</th>
                 <th class="text-center" scope="col">Gender</th>
                 <th class="text-center" scope="col">Birthday</th>
-                <th class="text-center" scope="col">Date Created</th>
+                <th class="text-center" scope="col">Address</th>
+                <th class="text-center" scope="col">Image</th>
                 <th class="text-center" scope="col">Action</th>
               </tr>
               <?php
@@ -73,8 +79,9 @@ if (!empty($_SESSION["id"])) {
                   <td class="text-center"><?= $user['name']; ?></td>
                   <td class="text-center"><?= $user['email']; ?></td>
                   <td class="text-center"><?= $user['gender']; ?></td>
-                  <td class="text-center"><?= $user["birthday"] ?></td>
-                  <td class="text-center"> </td>
+                  <td class="text-center"><?= $user['birthday']; ?></td>
+                  <td class="text-center"><?= $user['address']; ?></td>
+                  <td class="text-center pr-5 pl-5"><img src=<?= $user['image']; ?> width="170px" height="70px" accept=".jpg, .jpeg, .png"></td>
                   <td class="text-center">
                     <a href="viewuser.php?id=<?= $user['id']; ?>>" class="btn btn-success btn-sm mr-1">VIEW</a>
                     <a href="edituser.php?id=<?= $user['id']; ?>>" class="btn btn-primary btn-sm mr-1">EDIT</a>

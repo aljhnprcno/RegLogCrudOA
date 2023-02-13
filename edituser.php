@@ -23,12 +23,12 @@ require 'config.php';
     <div class="row">
       <div class="col-md-12">
         <div class="card bg-secondary border-0">
-          <div class="card-header bg-dark text-white">
+          <div class="cardHeader-edituser card-header bg-dark text-white">
             <h2>Edit User
               <a href="index.php" class="btn btn-danger float-end mt-1">BACK</a>
             </h2>
           </div>
-          <div class="card-body bg-secondary text-white">
+          <div class="cardBody-edituser card-body bg-secondary text-white">
 
             <?php
             if (isset($_GET['id'])) {
@@ -41,11 +41,11 @@ require 'config.php';
                 $user = mysqli_fetch_array($query_run);
             ?>
 
-                <form action="code.php" method="POST" autocomplete="off" class="form-edituser">
+                <form action="code.php" method="POST" autocomplete="off" class="form-edituser" enctype="multipart/form-data">
 
                   <input type="hidden" name="user_id" value="<?= $user['id']; ?>">
                   <label for="name">Name: </label>
-                  <input required type="text" name="name" value="<?= $user['name']; ?>" class="form-control"> <br>
+                  <input type="text" name="name" value="<?= $user['name']; ?>" class="form-control"> <br>
                   <label for="email">Email: </label>
                   <input required type="email" name="email" value="<?= $user['email']; ?>" class="form-control"> <br>
                   <label for="gender">Gender: </label>
@@ -54,9 +54,13 @@ require 'config.php';
                     <option value="Female" <?php if ($user["gender"] == "Female") echo "selected"; ?>>Female</option>
                   </select> <br>
                   <label>Birthday: </label>
-                  <input type="date" name="birthday" class="form-control" value="<?php echo is_object($user["birthday"]) ? $user["birthday"]->format("Y-m-d") : $user["birthday"] ?>">
+                  <input type="date" name="birthday" class="form-control mb-4" value="<?php echo is_object($user["birthday"]) ? $user["birthday"]->format("Y-m-d") : $user["birthday"] ?>">
+                  <label>Address: </label>
+                  <input type="text" name="address" value="<?= $user['address']; ?>" class="form-control"> <br>
+                  <label>Images: </label>
+                  <td><input name="image" type="file" id="image "class="form-control mb-3" accept=".jpg, .jpeg, .png" value="<?= $user['image']; ?>"><img src="<?= $user['image']; ?>" width="200px" height="200px"></td>
                   <br>
-                  <button type="submit" name="edit_user" class="btn btn-primary">SAVE</button>
+                  <button type="submit" name="edit_user" class="btn btn-primary mt-3">SAVE</button>
                 </form>
             <?php
               } else {

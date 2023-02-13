@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'config.php';
 if (!empty($_SESSION["id"])) {
   header("Location: index.php");
@@ -40,10 +41,10 @@ if (isset($_POST["submit"])) {
     <div class="row">
       <div class="col-md-12">
         <div class="card border-0">
-          <div class="card-header bg-secondary text-white">
-            <h4>LOGIN</h4>
+          <div class="cardHeader-login card-header bg-secondary text-white">
+            <h2>LOGIN</h2>
           </div>
-          <div class="card-body bg-dark">
+          <div class="cardBody-login card-body bg-dark">
           <form class="form-login bg-dark text-white" method="POST" autocomplete="off">
             <div class="card-body">
                 <label for="usernameEmail">Username or Email:</label>

@@ -6,14 +6,49 @@ if(isset($_POST['save_user']))
 {
   date_default_timezone_set('Asia/Manila');
 
+
   $name = $_POST['name'];
   $email = $_POST['email'];
   $gender = $_POST['gender'];
   $birthday = $_POST['birthday'];
-  //g:i:s - 12 hour format H:i:s - 25 hour format
-  // m-d-Y - Month/Date/Year format Y-m-d - Year/Month/Date
+  $address = $_POST['address'];
+
+  // Start of upload image to database
+  $image = $_FILES['image'];
+  $img_loc = $_FILES['image']['tmp_name'];
+  $img_name = $_FILES['image']['name'];
+  $img_des = "img/".$img_name;
+  move_uploaded_file($img_loc,'img/'.$img_name); //'img/' - folder on my project
+  // End of upload image to database
+
+  if ($name == "") {
+    echo
+      "<script> alert('Name is Required'); </script>
+        <a href='adduser.php'>Return to Add user</a><br>";
+
+    return false;
+
+  } else if ($email == "") {
+    echo
+      "<script> alert('Email is Required'); </script>
+      <a href='adduser.php'>Return to Add user</a><br>";
+
+    return false;
+
+  } else  if ($birthday == "") {
+    echo
+      "<script> alert('Birthday is Required'); </script>
+      <a href='adduser.php'>Return to Add user</a><br>";
+
+    return false;
+  };
+
+
+  //g:i:s - 12 hour format, H:i:s - 24 hour format
+  // m-d-Y - Month/Date/Year format, Y-m-d - Year/Month/Date
   $today = date("Y-m-d g:i:s"); 
   $duplicate = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+
 
   if (mysqli_num_rows($duplicate) > 0) {
 
@@ -28,14 +63,15 @@ if(isset($_POST['save_user']))
     exit(0);
 
   } else {
-    
-    $query = "INSERT INTO users VALUES(null,'$name','$email','$gender','$birthday')";
+
+    $query = "INSERT INTO users VALUES(null,'$name','$email','$gender','$birthday','$address', '$img_des')";
     mysqli_query($conn, $query);
     $_SESSION['message'] = "User Created Successfully";
     header("Location: index.php");
     exit(0);
 
   };
+
 }
 
 if(isset($_POST['edit_user']))
@@ -47,10 +83,21 @@ if(isset($_POST['edit_user']))
   $email = $_POST['email'];
   $gender = $_POST['gender'];
   $birthday = $_POST['birthday'];
+  $address = $_POST['address'];
+
+
+  // Start of upload image to database
+  $image = $_FILES['image'];
+  $img_loc = $_FILES['image']['tmp_name'];
+  $img_name = $_FILES['image']['name'];
+  $img_des = "img/".$img_name;
+  move_uploaded_file($img_loc,'img/'.$img_name); //'img/' - folder on my project
+  // End of upload image to database
 
 
   $today = date("Y-m-d H:i:s");
   $duplicate_email = mysqli_query($conn, "SELECT * FROM users WHERE id != $user_id AND email = '$email'");
+  $data = mysqli_fetch_array($duplicate_email);
 
 
 
@@ -68,12 +115,11 @@ if(isset($_POST['edit_user']))
 
   } else {
 
-    $query = "UPDATE users SET name='$name', email='$email', gender='$gender', birthday='$birthday' WHERE id='$user_id' ";
+    $query = "UPDATE users SET name='$name', email='$email', gender='$gender', birthday='$birthday', address='$address', image='$img_des' WHERE id='$user_id' ";
     mysqli_query($conn,$query);
     $_SESSION['message'] = "User Updated Successfully";
     header("Location: index.php");
     exit(0);
-
   };
 }
 

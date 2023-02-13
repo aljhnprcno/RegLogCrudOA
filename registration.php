@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'config.php';
 if (isset($_POST["submit"])) {
   $name = $_POST["name"];
@@ -42,10 +43,10 @@ if (isset($_POST["submit"])) {
     <div class="row">
       <div class="col-md-12">
         <div class="card-register card border-0">
-          <div class="card-header bg-secondary text-white">
-            <h2>Registration</h2>
+          <div class="cardHeader-register card-header bg-secondary text-white">
+            <h2>REGISTRATION</h2>
           </div>
-          <div class="card-body bg-dark">
+          <div class="cardBody-register card-body bg-dark">
             <form class="form-register bg-dark text-white" action="" method="POST" autocomplete="off">
               <label for="name">Name: </label>
               <input type="text" name="name" required value="" placeholder=" Enter Name" class="form-control mb-3">

@@ -21,28 +21,28 @@ session_start();
 
     <div class="col-md-12">
       <div class="card bg-secondary border-0">
-        <div class="card-header bg-dark text-white">
+        <div class="cardHeader-adduser card-header bg-dark text-white">
           <h2>Add User
             <a href="index.php" class="btn btn-danger float-end mt-1">BACK</a>
           </h2>
         </div>
         <br>
-        <div class="card-body bg-secondary text-white">
-          <form action="code.php" method="POST" autocomplete="off" class="form-adduser">
+        <div class="cardBody-adduser card-body bg-secondary text-white">
+          <form action="code.php" method="POST" autocomplete="off" class="form-adduser" enctype="multipart/form-data">
 
             <div class="mb-3">
               <label for="name">Name: </label>
-              <input required name="name" type="text" id="name" value="" placeholder="Enter Name" class="form-control">
+              <input name="name" type="text" id="name" value="" placeholder="Enter Name" class="form-control">
             </div>
 
             <div class="mb-3">
               <label for="email">Email: </label>
-              <input required name="email" type="email" id="email" value="" placeholder="Enter Email" class="form-control">
+              <input name="email" type="email" id="email" value="" placeholder="Enter Email" class="form-control">
             </div>
 
             <div class="mb-3">
               <label for="gender">Gender: </label>
-              <select required name="gender" id="gender" class="form-control">
+              <select name="gender" id="gender" class="form-control">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
@@ -50,11 +50,30 @@ session_start();
 
             <div class="mb-4">
               <label>Birthday: </label>
-              <input required name="birthday" type="date" id="birthday" class="form-control">
+              <input name="birthday" type="date" id="birthday" class="form-control">
             </div>
 
+            <div class="mb-4">
+              <label>Address: </label>
+              <input name="address" type="text" id="adress "class="form-control">
+            </div>
+
+            <!-- Image Upload -->
+            <div class="mb-4">
+              <label>Image: </label>
+              <input name="image" type="file" id="image "class="form-control" accept=".jpg, .jpeg, .png">
+            </div>
+
+
+
+            <!-- Date Created -->
+            <!-- <div class="mb-4">
+              <label>Birthday: </label>
+              <input required name="birthday" type="date" id="birthday" class="form-control">
+            </div> -->
+
             <div class="mb-3">
-              <button type="submit" name="save_user" class="btn btn-primary">ADD</button>
+              <button type="submit" name="save_user" class="btn btn-primary" value="Upload">ADD</button>
             </div>
           </form>
         </div>
