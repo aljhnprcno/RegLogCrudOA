@@ -6,7 +6,6 @@ if(isset($_POST['save_user']))
 {
   date_default_timezone_set('Asia/Manila');
 
-
   $name = $_POST['name'];
   $email = $_POST['email'];
   $gender = $_POST['gender'];
@@ -64,7 +63,7 @@ if(isset($_POST['save_user']))
 
   } else {
 
-    $query = "INSERT INTO users VALUES(null,'$name','$email','$gender','$birthday','$address', '$img_des')";
+    $query = "INSERT INTO users VALUES(null,'$name','$email','$gender','$birthday','$address','$img_des',null,null)";
     mysqli_query($conn, $query);
     $_SESSION['message'] = "User Created Successfully";
     header("Location: index.php");
@@ -85,21 +84,25 @@ if(isset($_POST['edit_user']))
   $birthday = $_POST['birthday'];
   $address = $_POST['address'];
 
-
-  // Start of upload image to database
-  $image = $_FILES['image'];
-  $img_loc = $_FILES['image']['tmp_name'];
   $img_name = $_FILES['image']['name'];
+  $img_loc = $_FILES['image']['tmp_name'];
+  move_uploaded_file($img_loc,'img/'.$img_name);
   $img_des = "img/".$img_name;
-  move_uploaded_file($img_loc,'img/'.$img_name); //'img/' - folder on my project
-  // End of upload image to database
-
+  $old_image = $_POST['old_image'];
 
   $today = date("Y-m-d H:i:s");
   $duplicate_email = mysqli_query($conn, "SELECT * FROM users WHERE id != $user_id AND email = '$email'");
   $data = mysqli_fetch_array($duplicate_email);
 
+  if($image !=''){
 
+    $update_filename = $_FILES['image']['name'];
+    $file_extension = pathinfo($update_filename, PATHINFO_EXTENSION);
+    $img_name = time().'.'.$file_extension;
+
+  } else {
+    $update_filename = $old_image;
+  }
 
   if (mysqli_num_rows($duplicate_email) > 0) {
 
@@ -115,7 +118,7 @@ if(isset($_POST['edit_user']))
 
   } else {
 
-    $query = "UPDATE users SET name='$name', email='$email', gender='$gender', birthday='$birthday', address='$address', image='$img_des' WHERE id='$user_id' ";
+    $query = "UPDATE users SET name='$name', email='$email', gender='$gender', birthday='$birthday', address='$address', image='$update_filename' WHERE id='$user_id' ";
     mysqli_query($conn,$query);
     $_SESSION['message'] = "User Updated Successfully";
     header("Location: index.php");

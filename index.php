@@ -23,6 +23,7 @@ if (!empty($_SESSION["id"])) {
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+  <link rel = "icon" href ="./img/oMEN ICON.jpg" type = "image/x-icon">
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,6 +63,7 @@ if (!empty($_SESSION["id"])) {
                 <th class="text-center" scope="col">Birthday</th>
                 <th class="text-center" scope="col">Address</th>
                 <th class="text-center" scope="col">Image</th>
+                <th class="text-center" scope="col">Date Created</th>
                 <th class="text-center" scope="col">Action</th>
               </tr>
               <?php
@@ -81,7 +83,8 @@ if (!empty($_SESSION["id"])) {
                   <td class="text-center"><?= $user['gender']; ?></td>
                   <td class="text-center"><?= $user['birthday']; ?></td>
                   <td class="text-center"><?= $user['address']; ?></td>
-                  <td class="text-center pr-5 pl-5"><img src=<?= $user['image']; ?> width="170px" height="70px" accept=".jpg, .jpeg, .png"></td>
+                  <td class="text-center"><img src=<?= $user['image']; ?> width="50px" height="50px" accept=".jpg, .jpeg, .png"></td>
+                  <td class="text-center"><?= $user['created_at']; ?></td>
                   <td class="text-center">
                     <a href="viewuser.php?id=<?= $user['id']; ?>>" class="btn btn-success btn-sm mr-1">VIEW</a>
                     <a href="edituser.php?id=<?= $user['id']; ?>>" class="btn btn-primary btn-sm mr-1">EDIT</a>

@@ -8,6 +8,7 @@ require 'config.php';
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel = "icon" href ="./img/oMEN ICON.jpg" type = "image/x-icon">
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +59,8 @@ require 'config.php';
                   <label>Address: </label>
                   <input type="text" name="address" value="<?= $user['address']; ?>" class="form-control"> <br>
                   <label>Images: </label>
-                  <td><input name="image" type="file" id="image "class="form-control mb-3" accept=".jpg, .jpeg, .png" value="<?= $user['image']; ?>"><img src="<?= $user['image']; ?>" width="200px" height="200px"></td>
+                  <td><input name="image" type="file" id="image "class="form-control mb-3" accept=".jpg, .jpeg, .png" value="<?= $user['image']; ?>"><img src="<?= $user['image']; ?>" width="200px" height="200px">
+                  <input type="hidden" name="old_image" value="<?= $user['image']; ?>"></td>
                   <br>
                   <button type="submit" name="edit_user" class="btn btn-primary mt-3">SAVE</button>
                 </form>
