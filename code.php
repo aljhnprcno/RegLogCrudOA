@@ -88,7 +88,6 @@ if(isset($_POST['edit_user']))
   $img_loc = $_FILES['image']['tmp_name'];
   move_uploaded_file($img_loc,'img/'.$img_name);
   $img_des = "img/".$img_name;
-  // $old_image = $_POST['old_image'];
 
   $today = date("Y-m-d H:i:s");
   $duplicate_email = mysqli_query($conn, "SELECT * FROM users WHERE id != $user_id AND email = '$email'");
@@ -107,14 +106,17 @@ if(isset($_POST['edit_user']))
     header("Location: index.php");
     exit(0);
 
-  // } else if($image !='') {
-
-  //   $update_filename = $_FILES['image']['name'];
-
   } else {
 
-    $update_filename = $old_image;
-    $query = "UPDATE users SET name='$name', email='$email', gender='$gender', birthday='$birthday', address='$address', image='$img_des' WHERE id='$user_id' ";
+    // $update_filename = $old_image;
+    $query = "UPDATE users SET name='$name', email='$email', updated_at='$today', gender='$gender', birthday='$birthday', address='$address'";
+    // Concatenate
+    if (($img_name)) {
+      $query .= ", image='$img_des',";
+      null;
+    }
+      $query .= " WHERE id='$user_id'";
+
     mysqli_query($conn,$query);
     $_SESSION['message'] = "User Updated Successfully";
     header("Location: index.php");

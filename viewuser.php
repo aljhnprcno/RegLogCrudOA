@@ -70,7 +70,7 @@ require 'config.php';
 
               <div class="mb-3">
                 <label>Address: </label>
-                <p class="form-control">
+                <p class="form-control"><br>
                   <?=$user['address']; ?>
                 </p>
               </div>

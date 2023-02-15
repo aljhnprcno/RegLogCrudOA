@@ -56,7 +56,7 @@ session_start();
 
             <div class="mb-4">
               <label>Address: </label>
-              <input name="address" type="text" id="adress "class="form-control">
+              <input name="address" type="text" id="adress "class="form-control" placeholder="Enter Address (Optional)">
             </div>
 
             <!-- Image Upload -->
