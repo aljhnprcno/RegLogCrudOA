@@ -20,27 +20,27 @@ if(isset($_POST['save_user']))
   move_uploaded_file($img_loc,'img/'.$img_name); //'img/' - folder on my project
   // End of upload image to database
 
-  if ($name == "") {
-    echo
-      "<script> alert('Name is Required'); </script>
-        <a href='adduser.php'>Return to Add user</a><br>";
+  // if ($name == "") {
+  //   echo
+  //     "<script> alert('Name is Required'); </script>
+  //       <a href='adduser.php'>Return to Add user</a><br>";
 
-    return false;
+  //   return false;
 
-  } else if ($email == "") {
-    echo
-      "<script> alert('Email is Required'); </script>
-      <a href='adduser.php'>Return to Add user</a><br>";
+  // } else if ($email == "") {
+  //   echo
+  //     "<script> alert('Email is Required'); </script>
+  //     <a href='adduser.php'>Return to Add user</a><br>";
 
-    return false;
+  //   return false;
 
-  } else  if ($birthday == "") {
-    echo
-      "<script> alert('Birthday is Required'); </script>
-      <a href='adduser.php'>Return to Add user</a><br>";
+  // } else  if ($birthday == "") {
+  //   echo
+  //     "<script> alert('Birthday is Required'); </script>
+  //     <a href='adduser.php'>Return to Add user</a><br>";
 
-    return false;
-  };
+  //   return false;
+  // };
 
 
   //g:i:s - 12 hour format, H:i:s - 24 hour format
@@ -88,21 +88,12 @@ if(isset($_POST['edit_user']))
   $img_loc = $_FILES['image']['tmp_name'];
   move_uploaded_file($img_loc,'img/'.$img_name);
   $img_des = "img/".$img_name;
-  $old_image = $_POST['old_image'];
+  // $old_image = $_POST['old_image'];
 
   $today = date("Y-m-d H:i:s");
   $duplicate_email = mysqli_query($conn, "SELECT * FROM users WHERE id != $user_id AND email = '$email'");
   $data = mysqli_fetch_array($duplicate_email);
 
-  if($image !=''){
-
-    $update_filename = $_FILES['image']['name'];
-    $file_extension = pathinfo($update_filename, PATHINFO_EXTENSION);
-    $img_name = time().'.'.$file_extension;
-
-  } else {
-    $update_filename = $old_image;
-  }
 
   if (mysqli_num_rows($duplicate_email) > 0) {
 
@@ -116,14 +107,19 @@ if(isset($_POST['edit_user']))
     header("Location: index.php");
     exit(0);
 
+  // } else if($image !='') {
+
+  //   $update_filename = $_FILES['image']['name'];
+
   } else {
 
-    $query = "UPDATE users SET name='$name', email='$email', gender='$gender', birthday='$birthday', address='$address', image='$update_filename' WHERE id='$user_id' ";
+    $update_filename = $old_image;
+    $query = "UPDATE users SET name='$name', email='$email', gender='$gender', birthday='$birthday', address='$address', image='$img_des' WHERE id='$user_id' ";
     mysqli_query($conn,$query);
     $_SESSION['message'] = "User Updated Successfully";
     header("Location: index.php");
     exit(0);
-  };
+  }
 }
 
 if(isset($_POST['delete_user']))

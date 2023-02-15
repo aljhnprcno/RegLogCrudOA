@@ -59,8 +59,8 @@ require 'config.php';
                   <label>Address: </label>
                   <input type="text" name="address" value="<?= $user['address']; ?>" class="form-control"> <br>
                   <label>Images: </label>
-                  <td><input name="image" type="file" id="image "class="form-control mb-3" accept=".jpg, .jpeg, .png" value="<?= $user['image']; ?>"><img src="<?= $user['image']; ?>" width="200px" height="200px">
-                  <input type="hidden" name="old_image" value="<?= $user['image']; ?>"></td>
+                  <td><input required name="image" type="file" id="image "class="form-control mb-3" accept=".jpg, .jpeg, .png" value="<?= $user['image']; ?>"><img src="<?= $user['image']; ?>" width="200px" height="200px"></td>
+                  <td><input type="hidden" name="old_image" value="<?= $user['image']; ?>"></td>
                   <br>
                   <button type="submit" name="edit_user" class="btn btn-primary mt-3">SAVE</button>
                 </form>

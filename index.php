@@ -84,7 +84,7 @@ if (!empty($_SESSION["id"])) {
                   <td class="text-center"><?= $user['birthday']; ?></td>
                   <td class="text-center"><?= $user['address']; ?></td>
                   <td class="text-center"><img src=<?= $user['image']; ?> width="50px" height="50px" accept=".jpg, .jpeg, .png"></td>
-                  <td class="text-center"><?= $user['created_at']; ?></td>
+                  <td class="text-center"><?= $user ['created_at']; ?></td>
                   <td class="text-center">
                     <a href="viewuser.php?id=<?= $user['id']; ?>>" class="btn btn-success btn-sm mr-1">VIEW</a>
                     <a href="edituser.php?id=<?= $user['id']; ?>>" class="btn btn-primary btn-sm mr-1">EDIT</a>

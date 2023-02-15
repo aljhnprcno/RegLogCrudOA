@@ -33,12 +33,12 @@ session_start();
 
             <div class="mb-3">
               <label for="name">Name: </label>
-              <input name="name" type="text" id="name" value="" placeholder="Enter Name" class="form-control">
+              <input required name="name" type="text" id="name" value="" placeholder="Enter Name" class="form-control">
             </div>
 
             <div class="mb-3">
               <label for="email">Email: </label>
-              <input name="email" type="email" id="email" value="" placeholder="Enter Email" class="form-control">
+              <input required name="email" type="email" id="email" value="" placeholder="Enter Email" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -51,7 +51,7 @@ session_start();
 
             <div class="mb-4">
               <label>Birthday: </label>
-              <input name="birthday" type="date" id="birthday" class="form-control">
+              <input required name="birthday" type="date" id="birthday" class="form-control">
             </div>
 
             <div class="mb-4">
