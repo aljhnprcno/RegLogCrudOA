@@ -112,7 +112,7 @@ if(isset($_POST['edit_user']))
     $query = "UPDATE users SET name='$name', email='$email', updated_at='$today', gender='$gender', birthday='$birthday', address='$address'";
     // Concatenate
     if (($img_name)) {
-      $query .= ", image='$img_des',";
+      $query .= ", image='$img_des'";
       null;
     }
       $query .= " WHERE id='$user_id'";
