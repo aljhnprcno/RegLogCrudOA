@@ -19,8 +19,8 @@ session_start();
   <div class="main-adduser container mt-5">
 
     <?php include('message.php'); ?>
-
-    <div class="col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-5">
       <div class="card bg-secondary border-0">
         <div class="cardHeader-adduser card-header bg-dark text-white">
           <h2>Add User
@@ -80,6 +80,7 @@ session_start();
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 

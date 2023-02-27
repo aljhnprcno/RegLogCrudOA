@@ -41,8 +41,8 @@ if (isset($_POST["submit"])) {
 
 <body class="body-register bg-info">
   <div class="main-register container mt-5">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row justify-content-center">
+      <div class="col-md-6 mt-5">
         <div class="card-register card border-0">
           <div class="cardHeader-register card-header bg-secondary text-white">
             <h2>REGISTRATION</h2>
@@ -50,15 +50,15 @@ if (isset($_POST["submit"])) {
           <div class="cardBody-register card-body bg-dark">
             <form class="form-register bg-dark text-white" action="" method="POST" autocomplete="off">
               <label for="name">Name: </label>
-              <input type="text" name="name" required value="" placeholder=" Enter Name" class="form-control mb-3">
+              <input type="text" name="name" required value="" placeholder="Enter Name" class="form-control mb-3">
               <label for="username">Username: </label>
-              <input type="text" name="username" required value="" placeholder=" Enter username" class="form-control mb-3">
+              <input type="text" name="username" required value="" placeholder="Enter username" class="form-control mb-3">
               <label for="email">Email: </label>
-              <input type="email" name="email" required value="" placeholder=" Enter Email" class="form-control mb-3">
+              <input type="email" name="email" required value="" placeholder="Enter Email" class="form-control mb-3">
               <label for="password">Password: </label>
-              <input type="password" name="password" required value="" placeholder=" Enter Password" class="form-control mb-3">
+              <input type="password" name="password" required value="" placeholder="Enter Password" class="form-control mb-3">
               <label for="confirmPassword">Confirm Password: </label>
-              <input type="password" name="confirmPassword" required value="" placeholder=" Verify Password" class="form-control mb-4">
+              <input type="password" name="confirmPassword" required value="" placeholder="Verify Password" class="form-control mb-4">
               <button type="submit" name="submit" class="btn btn-primary">REGISTER</button>
               <div class="link-register mt-4 mb-2">
                 Already have an account? <a href="login.php">Click Here!</a>

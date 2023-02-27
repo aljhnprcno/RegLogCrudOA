@@ -21,8 +21,8 @@ require 'config.php';
 
     <?php include('message.php'); ?>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
         <div class="card bg-secondary border-0">
           <div class="cardHeader-edituser card-header bg-dark text-white">
             <h2>Edit User
